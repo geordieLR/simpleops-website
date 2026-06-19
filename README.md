@@ -12,7 +12,7 @@ Static website for [simpleops.co.nz](https://simpleops.co.nz).
 
 ## Hosting
 
-Designed for Netlify. The qualified enquiry form uses Netlify Forms.
+Designed for Cloudflare Pages. The qualified enquiry form is processed by Formspree.
 
 ## Before public launch
 
