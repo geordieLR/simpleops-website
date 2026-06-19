@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://simpleops.co.nz/</loc></url>
-  <url><loc>https://simpleops.co.nz/how-we-help.html</loc></url>
   <url><loc>https://simpleops.co.nz/services.html</loc></url>
-  <url><loc>https://simpleops.co.nz/services/business-tune-up.html</loc></url>
+  <url><loc>https://simpleops.co.nz/services/review.html</loc></url>
+  <url><loc>https://simpleops.co.nz/services/sprint.html</loc></url>
+  <url><loc>https://simpleops.co.nz/services/roadmap.html</loc></url>
   <url><loc>https://simpleops.co.nz/services/website-starter.html</loc></url>
+  <url><loc>https://simpleops.co.nz/faq.html</loc></url>
   <url><loc>https://simpleops.co.nz/about.html</loc></url>
   <url><loc>https://simpleops.co.nz/contact.html</loc></url>
+  <url><loc>https://simpleops.co.nz/privacy.html</loc></url>
+  <url><loc>https://simpleops.co.nz/terms.html</loc></url>
 </urlset>

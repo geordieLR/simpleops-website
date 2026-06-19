@@ -11,10 +11,20 @@
 
 [[redirects]]
   from = "/tune-up"
-  to = "/services/business-tune-up.html"
+  to = "/services/review.html"
+  status = 301
+
+[[redirects]]
+  from = "/services/business-tune-up.html"
+  to = "/services/review.html"
   status = 301
 
 [[redirects]]
   from = "/website"
   to = "/services/website-starter.html"
+  status = 301
+
+[[redirects]]
+  from = "/how-we-help.html"
+  to = "/services.html"
   status = 301
