@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 278 64" role="img" aria-labelledby="title">
+  <title id="title">Simple Ops</title>
+  <rect width="64" height="64" rx="16" fill="#F5F0E7"/>
+  <text x="32" y="39.5" text-anchor="middle" fill="#102D32"
+    font-family="'DM Sans', Arial, sans-serif" font-size="24" font-weight="700"
+    letter-spacing="-1.15">SO</text>
+  <text x="82" y="41.5" fill="#FFFFFF"
+    font-family="'DM Sans', Arial, sans-serif" font-size="29" font-weight="650"
+    letter-spacing="-0.75">Simple Ops</text>
+</svg>
