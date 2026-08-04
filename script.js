@@ -38,10 +38,15 @@ document.querySelector("[data-footer]")?.insertAdjacentHTML("beforeend", `
           <a href="mailto:hello@simpleops.co.nz">hello@simpleops.co.nz</a>
         </div>
         <nav aria-label="Services">
-          <strong>Services</strong>
-          <a href="/services/review.html">Simple Ops Review</a>
-          <a href="/services/sprint.html">Simple Ops Sprint</a>
-          <a href="/services/roadmap.html">Simple Ops Roadmap</a>
+          <strong>Simple Ops</strong>
+          <a href="/services/review.html">Business Review</a>
+          <a href="/services/sprint.html">Sprint</a>
+          <a href="/services/roadmap.html">Roadmap</a>
+          <strong class="footer-subhead">Just Happens by Simple Ops</strong>
+          <a href="/services/ai-embedment.html">AI Embedment</a>
+          <a href="/services/agent-workflow.html">Agent Workflow</a>
+          <a href="/services/custom-application.html">Custom Application</a>
+          <strong class="footer-subhead">Supporting offer</strong>
           <a href="/services/website-starter.html">Website Starter</a>
         </nav>
         <nav aria-label="Company">
