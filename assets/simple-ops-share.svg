@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Simple Ops</title>
+  <desc id="desc">Grow the business, not the mess.</desc>
+  <rect width="1200" height="630" fill="#F5F0E7"/>
+  <circle cx="1090" cy="52" r="250" fill="#DCE7DE"/>
+  <circle cx="1120" cy="610" r="190" fill="#D8B767" opacity=".28"/>
+  <path d="M0 548C214 494 363 600 578 542C790 485 959 435 1200 512V630H0Z" fill="#102D32"/>
+  <g transform="translate(82 76)">
+    <rect width="74" height="74" rx="18" fill="#102D32"/>
+    <text x="37" y="47" text-anchor="middle" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="27" font-weight="700" letter-spacing="-1">SO</text>
+    <text x="94" y="49" fill="#102D32" font-family="Arial, sans-serif" font-size="36" font-weight="700" letter-spacing="-1">Simple Ops</text>
+  </g>
+  <text x="82" y="280" fill="#18363A" font-family="Georgia, serif" font-size="68" font-weight="600" letter-spacing="-2">
+    <tspan x="82">Grow the business.</tspan>
+    <tspan x="82" dy="88" fill="#C8663D">Not the mess.</tspan>
+  </text>
+  <text x="84" y="466" fill="#5F706F" font-family="Arial, sans-serif" font-size="25">Practical business improvement for owner-led businesses.</text>
+  <text x="82" y="592" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="22" font-weight="700" letter-spacing=".5">simpleops.co.nz</text>
+</svg>
