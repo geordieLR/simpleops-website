@@ -14,6 +14,14 @@ Static website for [simpleops.co.nz](https://simpleops.co.nz).
 
 Designed for Cloudflare Pages. The qualified enquiry form is processed by Formspree.
 
+## Local review
+
+1. Run `npm test` to check every published route, internal link and required offer label.
+2. Run `npm run preview` to start the local site.
+3. Open `http://localhost:4173`.
+
+The site remains deployable as static files with no build step. Existing AI Embedment and Agent Workflow file paths and form values are retained so published links and enquiry handling do not regress while the public offer names change.
+
 ## Before public launch
 
 - Confirm the founder biography and any proof points.

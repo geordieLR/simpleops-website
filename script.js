@@ -43,8 +43,8 @@ document.querySelector("[data-footer]")?.insertAdjacentHTML("beforeend", `
           <a href="/services/sprint.html">Sprint</a>
           <a href="/services/roadmap.html">Roadmap</a>
           <strong class="footer-subhead">Just Happens by Simple Ops</strong>
-          <a href="/services/ai-embedment.html">AI Embedment</a>
-          <a href="/services/agent-workflow.html">Agent Workflow</a>
+          <a href="/services/ai-embedment.html">AI Foundations</a>
+          <a href="/services/agent-workflow.html">Workflow</a>
           <a href="/services/custom-application.html">Custom Application</a>
           <strong class="footer-subhead">Supporting offer</strong>
           <a href="/services/website-starter.html">Website Starter</a>

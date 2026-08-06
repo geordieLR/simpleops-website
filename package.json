@@ -1,0 +1,8 @@
+{
+  "name": "simpleops-website-preview",
+  "private": true,
+  "scripts": {
+    "preview": "node local-preview.mjs",
+    "test": "node site-regression.mjs"
+  }
+}
