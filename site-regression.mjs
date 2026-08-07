@@ -65,7 +65,8 @@ try {
   for (const file of pages) {
     const source = await readFile(file, "utf8");
     const label = relative(root, file);
-    requireText(source, ["<title>", "name=\"viewport\"", "lang=\"en-NZ\""], label);
+    requireText(source, ["<title>", "name=\"viewport\"", "lang=\"en-NZ\"", "src=\"/analytics.js\""], label);
+    assert.equal(source.match(/src="\/analytics\.js"/g)?.length, 1, `${label} must load analytics exactly once`);
     assert(!source.includes("AI Embedment"), `${label} still shows the former public offer name`);
     assert(!source.includes("Agent Workflow"), `${label} still shows the former public offer name`);
 
@@ -84,12 +85,19 @@ try {
   const foundations = await readFile(join(root, "services/ai-embedment.html"), "utf8");
   const workflow = await readFile(join(root, "services/agent-workflow.html"), "utf8");
   const contact = await readFile(join(root, "contact.html"), "utf8");
+  const privacy = await readFile(join(root, "privacy.html"), "utf8");
+  const analytics = await readFile(join(root, "analytics.js"), "utf8");
+  const clientScript = await readFile(join(root, "script.js"), "utf8");
 
   requireText(home, ["AI Foundations", "Workflow", "Custom Application"], "index.html");
   requireText(services, ["safe, consistent AI use", "human approvals", "Custom Application"], "services.html");
   requireText(foundations, ["AI Foundations", "Shared business context", "human approval rules", "That belongs in Workflow"], "services/ai-embedment.html");
   requireText(workflow, ["Workflow in practice", "The trigger", "human approvals", "exception paths", "version control"], "services/agent-workflow.html");
   requireText(contact, ["value=\"ai-embedment\">AI Foundations", "value=\"agent-workflow\">Workflow"], "contact.html");
+  requireText(contact, ["data-clarity-mask=\"true\""], "contact.html");
+  requireText(privacy, ["Microsoft Clarity", "Contact form content is masked", "Microsoft Privacy Statement"], "privacy.html");
+  requireText(analytics, ["https://www.clarity.ms/tag/", "xydhx37ufu"], "analytics.js");
+  requireText(clientScript, ["cta_select", "faq_open", "contact_start", "contact_submit", "enquiry_complete"], "script.js");
 
   console.log(`Verified ${routes.length} local routes and ${internalReferences} internal references.`);
 } finally {
