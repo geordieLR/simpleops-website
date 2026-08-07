@@ -95,7 +95,7 @@ try {
   requireText(workflow, ["Workflow in practice", "The trigger", "human approvals", "exception paths", "version control"], "services/agent-workflow.html");
   requireText(contact, ["value=\"ai-embedment\">AI Foundations", "value=\"agent-workflow\">Workflow"], "contact.html");
   requireText(contact, ["data-clarity-mask=\"true\""], "contact.html");
-  requireText(privacy, ["GitHub, Google, Microsoft, Apple, HubSpot, Cloudflare and OpenAI", "all contact form content is masked", "7 August 2026"], "privacy.html");
+  requireText(privacy, ["We do not sell, rent or trade", "treated as strictly confidential", "GitHub, Google, Microsoft, Apple, HubSpot, Cloudflare and OpenAI", "all contact form content is masked", "7 August 2026"], "privacy.html");
   requireText(analytics, ["https://www.clarity.ms/tag/", "xydhx37ufu"], "analytics.js");
   requireText(clientScript, ["cta_select", "faq_open", "contact_start", "contact_submit", "enquiry_complete"], "script.js");
 
