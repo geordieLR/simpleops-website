@@ -88,6 +88,7 @@ try {
   const privacy = await readFile(join(root, "privacy.html"), "utf8");
   const analytics = await readFile(join(root, "analytics.js"), "utf8");
   const clientScript = await readFile(join(root, "script.js"), "utf8");
+  const styles = await readFile(join(root, "styles.css"), "utf8");
 
   requireText(home, ["AI Foundations", "Workflow", "Custom Application"], "index.html");
   requireText(services, ["specialised software costing too much or becoming outdated", "repetitive tasks taking up valuable time", "getting left behind on AI"], "services.html");
@@ -98,6 +99,8 @@ try {
   requireText(privacy, ["We do not sell, rent or trade", "treated as strictly confidential", "GitHub, Google, Microsoft, Apple, HubSpot, Cloudflare and OpenAI", "all contact form content is masked", "7 August 2026"], "privacy.html");
   requireText(analytics, ["https://www.clarity.ms/tag/", "xydhx37ufu", "https://www.googletagmanager.com/gtag/js?id=", "G-SYN6WEP298", "ad_storage: \"denied\"", "ad_personalization: \"denied\""], "analytics.js");
   requireText(clientScript, ["cta_select", "faq_open", "contact_start", "contact_submit", "enquiry_complete", "generate_lead"], "script.js");
+  requireText(styles, ["[data-header]{position:sticky", ".site-header{position:relative"], "styles.css");
+  assert(!styles.includes(".site-header{position:sticky"), "styles.css still constrains the sticky header inside its wrapper");
 
   console.log(`Verified ${routes.length} local routes and ${internalReferences} internal references.`);
 } finally {
