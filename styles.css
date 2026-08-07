@@ -20,7 +20,7 @@
 .architecture-grid .technical-family p{color:#c8d5d0}
 .architecture-grid h3{margin-bottom:12px;font:600 1.75rem/1.15 "Newsreader",serif}
 .architecture-grid p{color:var(--muted);font-size:.9rem}
-.homepage-architecture{max-width:900px;grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}
+.homepage-architecture{width:min(900px,calc(100% - 48px));grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}
 .family-links{display:grid;margin-top:22px;border-top:1px solid var(--line)}
 .technical-family .family-links{border-color:rgba(255,255,255,.18)}
 .family-links a{display:grid;padding:15px 0;border-bottom:1px solid var(--line);text-decoration:none}
@@ -77,5 +77,5 @@
 .footer-subhead{margin-top:13px!important}
 @media(max-width:1000px){.architecture-grid{grid-template-columns:1fr 1fr}.architecture-grid>article:last-child{grid-column:1/-1}.homepage-architecture>article:last-child{grid-column:auto}.service-hero-grid,.expansion-note,.scope-grid,.faq-grid{grid-template-columns:1fr}.service-hero-grid,.expansion-note,.scope-grid,.faq-grid{gap:45px}.service-steps{grid-template-columns:repeat(2,1fr)}.service-steps article:nth-child(2){border-right:0}.service-steps article:nth-child(3),.service-steps article:nth-child(4){border-top:1px solid #b9c9bc}}
 @media(max-width:900px){.choice-grid{grid-template-columns:1fr;gap:34px}.choice-copy{max-width:650px}}
-@media(max-width:650px){.architecture-grid,.service-steps{grid-template-columns:1fr}.architecture-grid>article:last-child{grid-column:auto}.service-steps article,.service-steps article:first-child{padding:24px 0;border-right:0;border-bottom:1px solid #b9c9bc}.service-steps article:nth-child(3),.service-steps article:nth-child(4){border-top:0}.service-steps article:last-child{border-bottom:0}.service-facts{padding:24px}}
+@media(max-width:650px){.architecture-grid,.service-steps{grid-template-columns:1fr}.homepage-architecture{width:calc(100% - 34px)}.architecture-grid>article:last-child{grid-column:auto}.service-steps article,.service-steps article:first-child{padding:24px 0;border-right:0;border-bottom:1px solid #b9c9bc}.service-steps article:nth-child(3),.service-steps article:nth-child(4){border-top:0}.service-steps article:last-child{border-bottom:0}.service-facts{padding:24px}}
 /* SERVICE EXPANSION END */
