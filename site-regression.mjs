@@ -96,8 +96,8 @@ try {
   requireText(contact, ["value=\"ai-embedment\">AI Foundations", "value=\"agent-workflow\">Workflow"], "contact.html");
   requireText(contact, ["data-clarity-mask=\"true\""], "contact.html");
   requireText(privacy, ["We do not sell, rent or trade", "treated as strictly confidential", "GitHub, Google, Microsoft, Apple, HubSpot, Cloudflare and OpenAI", "all contact form content is masked", "7 August 2026"], "privacy.html");
-  requireText(analytics, ["https://www.clarity.ms/tag/", "xydhx37ufu"], "analytics.js");
-  requireText(clientScript, ["cta_select", "faq_open", "contact_start", "contact_submit", "enquiry_complete"], "script.js");
+  requireText(analytics, ["https://www.clarity.ms/tag/", "xydhx37ufu", "https://www.googletagmanager.com/gtag/js?id=", "G-SYN6WEP298", "ad_storage: \"denied\"", "ad_personalization: \"denied\""], "analytics.js");
+  requireText(clientScript, ["cta_select", "faq_open", "contact_start", "contact_submit", "enquiry_complete", "generate_lead"], "script.js");
 
   console.log(`Verified ${routes.length} local routes and ${internalReferences} internal references.`);
 } finally {

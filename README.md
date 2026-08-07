@@ -12,11 +12,11 @@ Static website for [simpleops.co.nz](https://simpleops.co.nz).
 
 ## Hosting
 
-Designed for Cloudflare Pages. The qualified enquiry form is processed by Formspree. Website behaviour analytics use Microsoft Clarity.
+Designed for Cloudflare Pages. The qualified enquiry form is processed by Formspree. Website analytics use Google Analytics and Microsoft Clarity.
 
 ## Analytics
 
-Microsoft Clarity project `xydhx37ufu` is loaded from `analytics.js`. Named business events and safe session tags are defined in `script.js`. The enquiry form is explicitly masked and no form values are sent as event data.
+Google Analytics measurement `G-SYN6WEP298` and Microsoft Clarity project `xydhx37ufu` are loaded from `analytics.js`. Named business events and safe context values are defined in `script.js`. A successful enquiry sends the recommended Google Analytics `generate_lead` event. Advertising storage and personalisation are disabled. The enquiry form is explicitly masked and no form values are sent as event data.
 
 ## Local review
 
@@ -32,7 +32,7 @@ The site remains deployable as static files with no build step. Existing AI Embe
 - Confirm final Website Starter build price, deferral and cancellation terms.
 - Complete and legally review privacy, website terms and service terms.
 - Confirm `hello@simpleops.co.nz` and form notifications.
-- Complete the legal review of the Clarity disclosure and consent approach.
+- Complete the legal review of the analytics disclosure and consent approach.
 
 ## Unlisted offer
 

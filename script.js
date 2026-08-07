@@ -31,16 +31,20 @@ const interactionLocation = element => {
   if (element.closest("form")) return "form";
   return "page";
 };
-const clarityEvent = (name, tags = {}) => {
-  if (typeof window.clarity !== "function") return;
-  Object.entries(tags).forEach(([key, value]) => {
-    if (value !== undefined && value !== null && value !== "") window.clarity("set", key, String(value));
-  });
-  window.clarity("event", name);
+const analyticsSet = (key, value) => {
+  if (value === undefined || value === null || value === "") return;
+  const safeValue = String(value);
+  window.clarity?.("set", key, safeValue);
+  window.gtag?.("set", { [key]: safeValue });
+};
+const analyticsEvent = (name, tags = {}) => {
+  Object.entries(tags).forEach(([key, value]) => analyticsSet(key, value));
+  window.clarity?.("event", name);
+  window.gtag?.("event", name === "enquiry_complete" ? "generate_lead" : name, tags);
 };
 
-window.clarity?.("set", "page_type", normalizedPath === "/" ? "home" : normalizedPath.split("/").filter(Boolean).join("_"));
-if (offerByPath[normalizedPath]) window.clarity?.("set", "offer", offerByPath[normalizedPath]);
+analyticsSet("page_type", normalizedPath === "/" ? "home" : normalizedPath.split("/").filter(Boolean).join("_"));
+if (offerByPath[normalizedPath]) analyticsSet("offer", offerByPath[normalizedPath]);
 const nav = [
   ["/", "Home"],
   ["/services.html", "Services"],
@@ -114,13 +118,13 @@ menuButton?.addEventListener("click", () => {
   const open = menu.classList.toggle("open");
   menuButton.setAttribute("aria-expanded", String(open));
   menuButton.textContent = open ? "×" : "☰";
-  clarityEvent("menu_toggle", { menu_state: open ? "open" : "closed" });
+  analyticsEvent("menu_toggle", { menu_state: open ? "open" : "closed" });
 });
 
 document.querySelectorAll(".faq details").forEach(detail => {
   detail.addEventListener("toggle", () => {
     if (!detail.open) return;
-    clarityEvent("faq_open", { faq_question: publicText(detail.querySelector("summary")) });
+    analyticsEvent("faq_open", { faq_question: publicText(detail.querySelector("summary")) });
     document.querySelectorAll(".faq details").forEach(other => {
       if (other !== detail) other.open = false;
     });
@@ -131,7 +135,7 @@ document.querySelectorAll("[data-service-select]").forEach(select => {
   const value = new URLSearchParams(location.search).get("service");
   if (value && allowedContactInterests.has(value) && [...select.options].some(option => option.value === value)) {
     select.value = value;
-    window.clarity?.("set", "contact_interest", value);
+    analyticsSet("contact_interest", value);
   }
 });
 
@@ -144,13 +148,13 @@ document.addEventListener("click", event => {
     interaction_location: interactionLocation(link)
   };
 
-  if (href.startsWith("mailto:")) return clarityEvent("email_select", tags);
-  if (href.startsWith("#")) return clarityEvent("section_jump", tags);
-  if (link.classList.contains("button")) return clarityEvent("cta_select", tags);
-  if (link.closest(".site-header, .footer")) return clarityEvent("nav_select", tags);
+  if (href.startsWith("mailto:")) return analyticsEvent("email_select", tags);
+  if (href.startsWith("#")) return analyticsEvent("section_jump", tags);
+  if (link.classList.contains("button")) return analyticsEvent("cta_select", tags);
+  if (link.closest(".site-header, .footer")) return analyticsEvent("nav_select", tags);
 
   const targetPath = new URL(link.href, location.href).pathname.replace(/\.html$/, "");
-  if (offerByPath[targetPath]) clarityEvent("service_select", { ...tags, selected_offer: offerByPath[targetPath] });
+  if (offerByPath[targetPath]) analyticsEvent("service_select", { ...tags, selected_offer: offerByPath[targetPath] });
 });
 
 const contactForm = document.querySelector(".contact-form");
@@ -163,24 +167,24 @@ if (contactForm) {
     if (!field || field.type === "hidden" || field.name === "_gotcha") return;
     if (!contactStarted) {
       contactStarted = true;
-      clarityEvent("contact_start");
+      analyticsEvent("contact_start");
     }
     if (!engagedFields.has(field.name)) {
       engagedFields.add(field.name);
-      clarityEvent("contact_field_engaged", { contact_field: field.name });
+      analyticsEvent("contact_field_engaged", { contact_field: field.name });
     }
   });
 
   contactForm.addEventListener("invalid", event => {
     const field = event.target;
-    if (field?.name && field.name !== "_gotcha") clarityEvent("contact_validation_error", { contact_field: field.name });
+    if (field?.name && field.name !== "_gotcha") analyticsEvent("contact_validation_error", { contact_field: field.name });
   }, true);
 
   contactForm.querySelector("[name='service']")?.addEventListener("change", event => {
     const value = event.target.value;
     if (allowedContactInterests.has(value)) {
-      window.clarity?.("set", "contact_interest", value);
-      clarityEvent("contact_service_selected");
+      analyticsSet("contact_interest", value);
+      analyticsEvent("contact_service_selected");
     }
   });
 
@@ -188,7 +192,7 @@ if (contactForm) {
     try {
       sessionStorage.setItem("simpleops_contact_submitted", String(Date.now()));
     } catch {}
-    clarityEvent("contact_submit");
+    analyticsEvent("contact_submit");
   });
 }
 
@@ -196,7 +200,7 @@ if (normalizedPath === "/thanks") {
   try {
     const submittedAt = Number(sessionStorage.getItem("simpleops_contact_submitted"));
     if (submittedAt && Date.now() - submittedAt < 30 * 60 * 1000) {
-      clarityEvent("enquiry_complete");
+      analyticsEvent("enquiry_complete");
       sessionStorage.removeItem("simpleops_contact_submitted");
     }
   } catch {}
