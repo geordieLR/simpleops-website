@@ -68,7 +68,7 @@ document.querySelector("[data-header]")?.insertAdjacentHTML("beforeend", `
       <nav class="main-nav" id="main-nav" aria-label="Main navigation">
         ${nav.map(([href, label]) => `<a href="${href}"${isCurrent(href) ? ' aria-current="page"' : ""}>${label}</a>`).join("")}
       </nav>
-      <a class="button outline nav-cta" href="/services/review.html">Start a Review</a>
+      <a class="button outline nav-cta" href="/services.html">See how we can help</a>
       <button class="menu-button" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">☰</button>
     </div>
   </header>

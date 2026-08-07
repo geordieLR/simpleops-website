@@ -21,6 +21,11 @@
 .architecture-grid h3{margin-bottom:12px;font:600 1.75rem/1.15 "Newsreader",serif}
 .architecture-grid p{color:var(--muted);font-size:.9rem}
 .homepage-architecture{width:min(900px,calc(100% - 48px));grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}
+.service-path-card{position:relative;cursor:pointer;transition:transform .18s}
+.service-path-card:hover{transform:translateY(-2px)}
+.service-path-overview{position:absolute;z-index:1;inset:0;border-radius:inherit}
+.service-path-overview:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.service-path-card .family-links{position:relative;z-index:2}
 .family-links{display:grid;margin-top:22px;border-top:1px solid var(--line)}
 .technical-family .family-links{border-color:rgba(255,255,255,.18)}
 .family-links a{display:grid;padding:15px 0;border-bottom:1px solid var(--line);text-decoration:none}
