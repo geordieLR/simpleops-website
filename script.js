@@ -92,8 +92,6 @@ document.querySelector("[data-footer]")?.insertAdjacentHTML("beforeend", `
           <a href="/services/ai-embedment.html">AI Foundations</a>
           <a href="/services/agent-workflow.html">Workflow</a>
           <a href="/services/custom-application.html">Custom Application</a>
-          <strong class="footer-subhead">Supporting offer</strong>
-          <a href="/services/website-starter.html">Website Starter</a>
         </nav>
         <nav aria-label="Company">
           <strong>Company</strong>
