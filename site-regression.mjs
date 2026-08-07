@@ -90,7 +90,7 @@ try {
   const clientScript = await readFile(join(root, "script.js"), "utf8");
 
   requireText(home, ["AI Foundations", "Workflow", "Custom Application"], "index.html");
-  requireText(services, ["safe, consistent AI use", "human approvals", "Custom Application"], "services.html");
+  requireText(services, ["specialised software costing too much or becoming outdated", "repetitive tasks taking up valuable time", "getting left behind on AI"], "services.html");
   requireText(foundations, ["AI Foundations", "Shared business context", "human approval rules", "That belongs in Workflow"], "services/ai-embedment.html");
   requireText(workflow, ["Workflow in practice", "The trigger", "human approvals", "exception paths", "version control"], "services/agent-workflow.html");
   requireText(contact, ["value=\"ai-embedment\">AI Foundations", "value=\"agent-workflow\">Workflow"], "contact.html");
