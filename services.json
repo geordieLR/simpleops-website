@@ -1,0 +1,52 @@
+{
+  "name": "Simple Ops service catalogue",
+  "provider": "Simple Ops",
+  "currency": "NZD",
+  "tax": "GST applies as stated on each service page",
+  "lastUpdated": "2026-08-08",
+  "contact": "hello@simpleops.co.nz",
+  "services": [
+    {
+      "name": "Business Review",
+      "purpose": "Understand how work really happens and decide what is worth improving.",
+      "price": ["NZ$2,700 plus GST for fewer than five employees", "NZ$3,700 plus GST for five to ten employees"],
+      "duration": "One to two weeks",
+      "url": "https://simpleops.co.nz/services/review.html"
+    },
+    {
+      "name": "Sprint",
+      "purpose": "Take one clear operational problem through to a practical change.",
+      "price": "NZ$6,000 plus GST",
+      "duration": "Typically two to four weeks",
+      "url": "https://simpleops.co.nz/services/sprint.html"
+    },
+    {
+      "name": "Roadmap",
+      "purpose": "Prioritise and sequence a set of worthwhile improvements.",
+      "price": "NZ$7,500 plus GST",
+      "duration": "Typically two to four weeks",
+      "url": "https://simpleops.co.nz/services/roadmap.html"
+    },
+    {
+      "name": "AI Foundations",
+      "purpose": "Help a business use AI confidently, consistently and responsibly.",
+      "price": ["NZ$2,700 plus GST for fewer than five employees", "NZ$3,700 plus GST for five to ten employees"],
+      "duration": "Typically one to two weeks",
+      "url": "https://simpleops.co.nz/services/ai-embedment.html"
+    },
+    {
+      "name": "Workflow",
+      "purpose": "Turn one defined business process into a controlled workflow with human approvals.",
+      "price": "NZ$6,000 plus GST",
+      "duration": "Typically two to four weeks",
+      "url": "https://simpleops.co.nz/services/agent-workflow.html"
+    },
+    {
+      "name": "Custom Application",
+      "purpose": "Build a focused application around a proven business need.",
+      "price": "From NZ$7,500 plus GST",
+      "duration": "From four weeks, confirmed after scoping",
+      "url": "https://simpleops.co.nz/services/custom-application.html"
+    }
+  ]
+}

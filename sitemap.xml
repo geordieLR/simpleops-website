@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://simpleops.co.nz/</loc></url>
-  <url><loc>https://simpleops.co.nz/services.html</loc></url>
+  <url><loc>https://simpleops.co.nz/</loc><lastmod>2026-08-08</lastmod></url>
+  <url><loc>https://simpleops.co.nz/services.html</loc><lastmod>2026-08-08</lastmod></url>
   <url><loc>https://simpleops.co.nz/services/review.html</loc></url>
   <url><loc>https://simpleops.co.nz/services/sprint.html</loc></url>
   <url><loc>https://simpleops.co.nz/services/roadmap.html</loc></url>
@@ -9,7 +9,10 @@
   <url><loc>https://simpleops.co.nz/services/agent-workflow.html</loc></url>
   <url><loc>https://simpleops.co.nz/services/custom-application.html</loc></url>
   <url><loc>https://simpleops.co.nz/faq.html</loc></url>
-  <url><loc>https://simpleops.co.nz/about.html</loc></url>
+  <url><loc>https://simpleops.co.nz/about.html</loc><lastmod>2026-08-08</lastmod></url>
+  <url><loc>https://simpleops.co.nz/why-simple-ops-exists.html</loc><lastmod>2026-08-08</lastmod></url>
+  <url><loc>https://simpleops.co.nz/insights.html</loc><lastmod>2026-08-08</lastmod></url>
+  <url><loc>https://simpleops.co.nz/insights/when-work-needs-simplifying.html</loc><lastmod>2026-08-08</lastmod></url>
   <url><loc>https://simpleops.co.nz/contact.html</loc></url>
   <url><loc>https://simpleops.co.nz/privacy.html</loc></url>
   <url><loc>https://simpleops.co.nz/terms.html</loc></url>

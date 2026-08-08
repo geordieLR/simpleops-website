@@ -42,6 +42,10 @@ const routes = [...new Set([
   ...sitemapRoutes,
   "/thanks.html",
   "/services/initial-review.html",
+  "/insights.html",
+  "/insights/when-work-needs-simplifying.html",
+  "/llms.txt",
+  "/services.json",
   "/robots.txt",
   "/sitemap.xml"
 ])];
@@ -70,6 +74,10 @@ try {
     assert(!source.includes("AI Embedment"), `${label} still shows the former public offer name`);
     assert(!source.includes("Agent Workflow"), `${label} still shows the former public offer name`);
 
+    for (const block of source.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
+      assert.doesNotThrow(() => JSON.parse(block[1]), `${label} contains invalid structured data`);
+    }
+
     for (const match of source.matchAll(/(?:href|src)=\"([^\"]+)\"/g)) {
       const value = match[1];
       if (!value.startsWith("/") || value.startsWith("//")) continue;
@@ -81,6 +89,13 @@ try {
   }
 
   const home = await readFile(join(root, "index.html"), "utf8");
+  const about = await readFile(join(root, "about.html"), "utf8");
+  const origins = await readFile(join(root, "why-simple-ops-exists.html"), "utf8");
+  const insights = await readFile(join(root, "insights.html"), "utf8");
+  const insight = await readFile(join(root, "insights/when-work-needs-simplifying.html"), "utf8");
+  const robots = await readFile(join(root, "robots.txt"), "utf8");
+  const llms = await readFile(join(root, "llms.txt"), "utf8");
+  const serviceCatalogue = JSON.parse(await readFile(join(root, "services.json"), "utf8"));
   const services = await readFile(join(root, "services.html"), "utf8");
   const foundations = await readFile(join(root, "services/ai-embedment.html"), "utf8");
   const workflow = await readFile(join(root, "services/agent-workflow.html"), "utf8");
@@ -92,6 +107,15 @@ try {
   const styles = await readFile(join(root, "styles.css"), "utf8");
 
   requireText(home, ["AI Foundations", "Workflow", "Custom Application", "Customer led, Business first. Technology supporting quietly.", "Independent expert advice."], "index.html");
+  requireText(home, ["ProfessionalService", "#organisation"], "index.html structured data");
+  requireText(about, ["Built from experience", "Geordie Lindsay Russell", "Technology has to earn its place", "why-simple-ops-exists.html", "id=\"geordie\"", "\"@type\":\"AboutPage\""], "about.html");
+  requireText(origins, ["Why Simple Ops exists", "Built from doing the work", "Technology must earn its place", "about.html#geordie", "Make work simple", "\"@type\":\"AboutPage\""], "why-simple-ops-exists.html");
+  requireText(insights, ["Useful thinking for real work", "when-work-needs-simplifying.html"], "insights.html");
+  requireText(insight, ["Geordie Lindsay Russell", "datePublished", "What outcome actually matters?"], "insight article");
+  requireText(robots, ["OAI-SearchBot", "ChatGPT-User", "Sitemap:"], "robots.txt");
+  requireText(llms, ["Primary pages", "Service catalogue", "hello@simpleops.co.nz"], "llms.txt");
+  assert.equal(serviceCatalogue.services.length, 6, "services.json must list six core services");
+  assert(serviceCatalogue.services.every(service => service.price && service.duration), "services.json must include current price and duration for every service");
   requireText(services, ["specialised software costing too much or becoming outdated", "repetitive tasks taking up valuable time", "getting left behind on AI"], "services.html");
   assert.equal(services.match(/class="service-card-overview"/g)?.length, 6, "services.html must have six fully clickable service cards");
   requireText(foundations, ["AI Foundations", "Shared business context", "human approval rules", "That belongs in Workflow"], "services/ai-embedment.html");

@@ -1,0 +1,29 @@
+# Simple Ops
+
+Simple Ops is a New Zealand business improvement consultancy for owner led businesses. It starts with the operational problem and commercial outcome, then uses process, technology or AI only where useful.
+
+## Primary pages
+
+* [Home](https://simpleops.co.nz/): What Simple Ops does and who it helps
+* [Services](https://simpleops.co.nz/services.html): Current services, prices, timing and fit
+* [About](https://simpleops.co.nz/about.html): Founder experience and working approach
+* [Why Simple Ops exists](https://simpleops.co.nz/why-simple-ops-exists.html): Experience and practical thinking behind the approach
+* [Insights](https://simpleops.co.nz/insights.html): Practical guidance based on operating experience
+* [FAQ](https://simpleops.co.nz/faq.html): Access, confidentiality, recommendations and value
+* [Contact](https://simpleops.co.nz/contact.html): Enquiry form and contact details
+
+## Service catalogue
+
+Machine readable service information is available at https://simpleops.co.nz/services.json
+
+## Policies
+
+* [Privacy](https://simpleops.co.nz/privacy.html)
+* [Terms](https://simpleops.co.nz/terms.html)
+
+## Contact
+
+Email: hello@simpleops.co.nz
+Location: Auckland, New Zealand
+
+Information on this site is general business information. Service scope, pricing and commitments are confirmed through an approved proposal or order.

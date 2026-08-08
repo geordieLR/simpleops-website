@@ -98,6 +98,7 @@ document.querySelector("[data-footer]")?.insertAdjacentHTML("beforeend", `
           <strong>Company</strong>
           <a href="/faq.html">FAQ</a>
           <a href="/about.html">About</a>
+          <a href="/insights.html">Insights</a>
           <a href="/contact.html">Contact</a>
           <a href="/privacy.html">Privacy</a>
           <a href="/terms.html">Terms</a>
