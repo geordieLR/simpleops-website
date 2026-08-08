@@ -86,19 +86,23 @@ try {
   const workflow = await readFile(join(root, "services/agent-workflow.html"), "utf8");
   const contact = await readFile(join(root, "contact.html"), "utf8");
   const privacy = await readFile(join(root, "privacy.html"), "utf8");
+  const terms = await readFile(join(root, "terms.html"), "utf8");
   const analytics = await readFile(join(root, "analytics.js"), "utf8");
   const clientScript = await readFile(join(root, "script.js"), "utf8");
   const styles = await readFile(join(root, "styles.css"), "utf8");
 
-  requireText(home, ["AI Foundations", "Workflow", "Custom Application"], "index.html");
+  requireText(home, ["AI Foundations", "Workflow", "Custom Application", "Customer led, Business first. Technology supporting quietly.", "Independent expert advice."], "index.html");
   requireText(services, ["specialised software costing too much or becoming outdated", "repetitive tasks taking up valuable time", "getting left behind on AI"], "services.html");
+  assert.equal(services.match(/class="service-card-overview"/g)?.length, 6, "services.html must have six fully clickable service cards");
   requireText(foundations, ["AI Foundations", "Shared business context", "human approval rules", "That belongs in Workflow"], "services/ai-embedment.html");
   requireText(workflow, ["Workflow in practice", "The trigger", "human approvals", "exception paths", "version control"], "services/agent-workflow.html");
   requireText(contact, ["value=\"ai-embedment\">AI Foundations", "value=\"agent-workflow\">Workflow"], "contact.html");
   requireText(contact, ["data-clarity-mask=\"true\""], "contact.html");
   requireText(privacy, ["We do not sell, rent or trade", "treated as strictly confidential", "GitHub, Google, Microsoft, Apple, HubSpot, Cloudflare and OpenAI", "all contact form content is masked", "7 August 2026"], "privacy.html");
+  requireText(terms, ["Last updated: August 8, 2026"], "terms.html");
   requireText(analytics, ["https://www.clarity.ms/tag/", "xydhx37ufu", "https://www.googletagmanager.com/gtag/js?id=", "G-SYN6WEP298", "ad_storage: \"denied\"", "ad_personalization: \"denied\""], "analytics.js");
   requireText(clientScript, ["cta_select", "faq_open", "contact_start", "contact_submit", "enquiry_complete", "generate_lead"], "script.js");
+  requireText(clientScript, ["brand-tagline", "Make work simple"], "script.js");
   requireText(styles, ["[data-header]{position:sticky", ".site-header{position:relative"], "styles.css");
   assert(!styles.includes(".site-header{position:sticky"), "styles.css still constrains the sticky header inside its wrapper");
 

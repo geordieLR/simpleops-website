@@ -64,6 +64,7 @@ document.querySelector("[data-header]")?.insertAdjacentHTML("beforeend", `
     <div class="container header-inner">
       <a class="brand" href="/" aria-label="Simple Ops home">
         <img src="/assets/brand/simple-ops-logo.svg" alt="Simple Ops">
+        <span class="brand-tagline">Make work simple</span>
       </a>
       <nav class="main-nav" id="main-nav" aria-label="Main navigation">
         ${nav.map(([href, label]) => `<a href="${href}"${isCurrent(href) ? ' aria-current="page"' : ""}>${label}</a>`).join("")}
@@ -80,7 +81,7 @@ document.querySelector("[data-footer]")?.insertAdjacentHTML("beforeend", `
       <div class="footer-grid">
         <div>
           <a class="brand" href="/"><img src="/assets/brand/simple-ops-logo-reverse.svg" alt="Simple Ops"></a>
-          <p>Make your business easier to run.</p>
+          <p>Make work simple</p>
           <a href="mailto:hello@simpleops.co.nz">hello@simpleops.co.nz</a>
         </div>
         <nav aria-label="Services">
