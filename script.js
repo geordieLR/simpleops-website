@@ -55,6 +55,7 @@ const nav = [
 
 const isCurrent = href => {
   if (href === "/") return path === "/";
+  if (href === "/about.html") return path === href || path === "/work-and-experience.html" || path === "/who-we-work-with.html";
   return path === href || (href === "/services.html" && path.startsWith("/services/"));
 };
 
@@ -69,6 +70,10 @@ document.querySelector("[data-header]")?.insertAdjacentHTML("beforeend", `
       <nav class="main-nav" id="main-nav" aria-label="Main navigation">
         ${nav.map(([href, label]) => `<a href="${href}"${isCurrent(href) ? ' aria-current="page"' : ""}>${label}</a>`).join("")}
       </nav>
+      <a class="shop-link" href="/shop.html" aria-label="View the product shop"${path === "/shop.html" ? ' aria-current="page"' : ""}>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.2 10.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L20.3 8H6.1M9.5 20a.8.8 0 1 1-1.6 0 .8.8 0 0 1 1.6 0Zm8 0a.8.8 0 1 1-1.6 0 .8.8 0 0 1 1.6 0Z"/></svg>
+        <span class="sr-only">Shop</span>
+      </a>
       <a class="button outline nav-cta" href="/services.html">See how we can help</a>
       <button class="menu-button" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">☰</button>
     </div>
@@ -91,7 +96,7 @@ document.querySelector("[data-footer]")?.insertAdjacentHTML("beforeend", `
           <a href="/services/roadmap.html">Roadmap</a>
           <strong class="footer-subhead">Just Happens by Simple Ops</strong>
           <a href="/services/ai-embedment.html">AI Foundations</a>
-          <a href="/services/agent-workflow.html">Workflow</a>
+          <a href="/services/agent-workflow.html">AI Workflow</a>
           <a href="/services/custom-application.html">Custom Application</a>
         </nav>
         <nav aria-label="Company">
@@ -99,6 +104,10 @@ document.querySelector("[data-footer]")?.insertAdjacentHTML("beforeend", `
           <a href="/faq.html">FAQ</a>
           <a href="/about.html">About</a>
           <a href="/insights.html">Insights</a>
+          <a href="/work-and-experience.html">Work and experience</a>
+          <a href="/who-we-work-with.html">Who we work with</a>
+          <a href="/shop.html">Product shop</a>
+          <a href="/insights/responsible-ai-assurance.html">Responsible AI insight</a>
           <a href="/contact.html">Contact</a>
           <a href="/privacy.html">Privacy</a>
           <a href="/terms.html">Terms</a>
@@ -130,6 +139,65 @@ document.querySelectorAll(".faq details").forEach(detail => {
     });
   });
 });
+
+const testimonialSlider = document.querySelector("[data-testimonial-slider]");
+if (testimonialSlider) {
+  const shell = testimonialSlider.closest(".testimonial-shell");
+  const cards = [...testimonialSlider.querySelectorAll(".testimonial-card")];
+  const status = shell.querySelector("[data-slider-status]");
+  const previous = shell.querySelector("[data-slider-previous]");
+  const next = shell.querySelector("[data-slider-next]");
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let activeIndex = 0;
+  let timer;
+
+  const showCard = index => {
+    activeIndex = (index + cards.length) % cards.length;
+    cards.forEach((card, cardIndex) => {
+      const active = cardIndex === activeIndex;
+      card.classList.toggle("is-active", active);
+      card.setAttribute("aria-hidden", String(!active));
+    });
+    status.textContent = `${activeIndex + 1} of ${cards.length}`;
+  };
+
+  const stopRotation = () => clearInterval(timer);
+  const startRotation = () => {
+    stopRotation();
+    if (!reducedMotion) timer = setInterval(() => showCard(activeIndex + 1), 7000);
+  };
+
+  previous.addEventListener("click", () => {
+    showCard(activeIndex - 1);
+    startRotation();
+  });
+  next.addEventListener("click", () => {
+    showCard(activeIndex + 1);
+    startRotation();
+  });
+  shell.addEventListener("mouseenter", stopRotation);
+  shell.addEventListener("mouseleave", startRotation);
+  shell.addEventListener("focusin", stopRotation);
+  shell.addEventListener("focusout", startRotation);
+  showCard(0);
+  startRotation();
+}
+
+const productFilterButtons = [...document.querySelectorAll("[data-product-filter]")];
+const productCards = [...document.querySelectorAll("[data-product-categories]")];
+if (productFilterButtons.length && productCards.length) {
+  productFilterButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      const category = button.dataset.productFilter;
+      productFilterButtons.forEach(item => item.setAttribute("aria-pressed", String(item === button)));
+      productCards.forEach(card => {
+        const categories = card.dataset.productCategories.split(" ");
+        card.hidden = category !== "all" && !categories.includes(category);
+      });
+      analyticsEvent("catalogue_filter", { catalogue_category: category });
+    });
+  });
+}
 
 document.querySelectorAll("[data-service-select]").forEach(select => {
   const value = new URLSearchParams(location.search).get("service");
