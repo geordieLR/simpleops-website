@@ -108,6 +108,7 @@ document.querySelector("[data-footer]")?.insertAdjacentHTML("beforeend", `
           <a href="/who-we-work-with.html">Who we work with</a>
           <a href="/shop.html">Product shop</a>
           <a href="/insights/responsible-ai-assurance.html">Responsible AI insight</a>
+          <a href="/book.html">Book a consultation</a>
           <a href="/contact.html">Contact</a>
           <a href="/privacy.html">Privacy</a>
           <a href="/terms.html">Terms</a>
