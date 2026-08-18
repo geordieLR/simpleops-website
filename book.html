@@ -3,64 +3,85 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Book a free consultation | Simple Ops</title>
-  <meta name="description" content="Book a free 30 minute business consultation with Simple Ops.">
+  <title>Book a conversation | Simple Ops</title>
+  <meta name="description" content="Book a 15 minute website question or a free 30 minute business consultation with Simple Ops.">
   <link rel="canonical" href="https://simpleops.co.nz/book.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Simple Ops">
   <meta property="og:locale" content="en_NZ">
-  <meta property="og:title" content="Book a free consultation | Simple Ops">
-  <meta property="og:description" content="Book a free 30 minute business consultation with Simple Ops.">
+  <meta property="og:title" content="Book a conversation | Simple Ops">
+  <meta property="og:description" content="Book a 15 minute website question or a free 30 minute business consultation with Simple Ops.">
   <meta property="og:url" content="https://simpleops.co.nz/book.html">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Book a free consultation | Simple Ops">
-  <meta name="twitter:description" content="Book a free 30 minute business consultation with Simple Ops.">
+  <meta name="twitter:title" content="Book a conversation | Simple Ops">
+  <meta name="twitter:description" content="Book a 15 minute website question or a free 30 minute business consultation with Simple Ops.">
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="/booking.css">
   <link rel="icon" href="/assets/favicon.svg">
+  <script src="/analytics.js"></script>
   <script defer src="/script.js"></script>
+  <script defer src="/booking.js"></script>
 </head>
 <body>
   <!--
-  THESIS: Put the real appointment choice first instead of sending visitors to another unbranded page.
+  THESIS: Present two clear conversation routes before the live calendar.
   OWN-WORLD: Existing Simple Ops paper, forest and rust palette with restrained lines and editorial type.
-  STORY: Understand the free conversation, choose a time and receive the meeting details.
-  FIRST VIEWPORT: A concise consultation introduction leads directly into the live calendar.
-  FORM: Focused booking surface, position 1 of 1, seed key specified extension.
+  STORY: Choose a website question or business consultation, then book a suitable time.
+  FIRST VIEWPORT: A concise introduction leads directly into the two conversation choices.
+  FORM: Editorial two row choice list, position 1 of 1, based on the agreed two service structure, seed key specified extension.
   FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
   -->
   <div data-header></div>
   <main>
     <section class="booking-intro">
-      <div class="container booking-intro-grid">
-        <div>
-          <h1>Book a free business consultation.</h1>
-          <p class="lead">A focused 30 minute conversation about your business, what is getting in the way and what a sensible next step could look like.</p>
+      <div class="container">
+        <h1>Book a conversation.</h1>
+        <p class="lead">Choose the conversation that best matches what you need.</p>
+      </div>
+    </section>
+    <section class="booking-options-section" aria-label="Conversation options">
+      <div class="container">
+        <div class="booking-options">
+          <article class="booking-option" data-booking-option="website">
+            <div class="booking-option-copy">
+              <p class="booking-option-time">15 minutes</p>
+              <h2>Website question</h2>
+              <p>Have a quick question about the Simple Ops website, our services or what happens next? Choose a time and join through Teams.</p>
+            </div>
+            <a class="button outline" href="https://outlook.office.com/book/SimpleOps1@simpleops.co.nz/s/DWqXhZzZHUyPQSHBFu2Jng2?ismsaljsauthenabled" data-booking-choice="website" data-booking-url="https://outlook.office.com/book/SimpleOps1@simpleops.co.nz/s/DWqXhZzZHUyPQSHBFu2Jng2?ismsaljsauthenabled">Book 15 minutes</a>
+          </article>
+          <article class="booking-option" data-booking-option="consultation">
+            <div class="booking-option-copy">
+              <p class="booking-option-time">30 minutes</p>
+              <h2>Free business consultation</h2>
+              <p>Talk through how your business works, what is getting in the way and what you want to improve. If there is a good fit, the conversation can inform a tailored proposal or short brief at no charge.</p>
+            </div>
+            <a class="button primary" href="https://outlook.office.com/book/SimpleOps1@simpleops.co.nz/s/MJktbLLHHkSxw-Sc0K0UFA2?ismsaljsauthenabled" data-booking-choice="consultation" data-booking-url="https://outlook.office.com/book/SimpleOps1@simpleops.co.nz/s/MJktbLLHHkSxw-Sc0K0UFA2?ismsaljsauthenabled">Book 30 minutes</a>
+          </article>
         </div>
-        <dl class="booking-details" aria-label="Consultation details">
-          <div><dt>Length</dt><dd>30 minutes</dd></div>
-          <div><dt>Format</dt><dd>Online meeting</dd></div>
-          <div><dt>Cost</dt><dd>Free</dd></div>
-        </dl>
+        <p class="booking-note"><strong>Before you book</strong> Both conversations are held through Teams. You can reschedule or cancel from the confirmation email.</p>
       </div>
     </section>
     <section class="booking-section" aria-labelledby="booking-heading">
       <div class="container">
         <div class="booking-heading">
           <h2 id="booking-heading">Choose a time.</h2>
-          <p>Microsoft will email your confirmation and meeting link.</p>
         </div>
-        <p class="booking-fallback">You can also <a href="https://outlook.office.com/book/SimpleOps1@simpleops.co.nz/?ismsaljsauthenabled" target="_blank" rel="noopener">open the booking page</a> in a new tab or email <a href="mailto:hello@simpleops.co.nz">hello@simpleops.co.nz</a>.</p>
-        <div class="booking-frame">
+        <div class="booking-frame" id="booking-form">
           <iframe
             src="https://outlook.office.com/book/SimpleOps1@simpleops.co.nz/?ismsaljsauthenabled"
-            title="Book a free business consultation with Simple Ops"
+            title="Book a conversation with Simple Ops"
             width="100%"
             height="920"
             loading="eager"
             referrerpolicy="strict-origin-when-cross-origin"
+            data-booking-frame
           ></iframe>
         </div>
+        <aside class="booking-write">
+          <h2>Prefer to write?</h2>
+          <p>Send an enquiry through the <a href="/contact.html">contact form</a>.</p>
+        </aside>
       </div>
     </section>
   </main>
